@@ -1,0 +1,47 @@
+﻿@model List<EFMVC4.Models.Movie>
+
+@{
+    ViewBag.Title = "Movies DB";
+}
+   
+<h3>Browse Movies</h3>
+
+<table>
+    <tr>
+        <th>
+            Movie Title
+        </th>
+        <th>
+            Movie Director
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (EFMVC4.Models.Movie movie in Model)
+    {
+        <tr>
+            <td>
+                @movie.Title
+            </td>
+            <td>
+                @movie.Director
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = movie.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = movie.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = movie.Id })
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    <br />
+    @Html.ActionLink("Create New", "Create")
+</div>
+
+
